@@ -110,11 +110,11 @@ class DemoTest {
 
     @Test
     void should_return_X0_Y0_E_when_execute_command_R() {
-        MarsRover marsRover = new MarsRover(0,0,"N");
+        MarsRover marsRover = new MarsRover(0, 0, "N");
 
         marsRover.executeCommand("R");
 
-        Assertions.assertEquals("E",marsRover.getDirection());
+        Assertions.assertEquals("E", marsRover.getDirection());
     }
 }
 

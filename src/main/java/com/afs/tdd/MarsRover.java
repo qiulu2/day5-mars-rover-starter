@@ -2,6 +2,16 @@ package com.afs.tdd;
 
 
 public class MarsRover {
+    public static final String COMMAND_MOVE = "M";
+    public static final String COMMAND_TURN_LEFT = "L";
+    public static final String COMMAND_TURN_RIGHT = "R";
+
+    public static final String NORTH = "N";
+    public static final String SOUTH = "S";
+    public static final String EAST = "E";
+    public static final String WEST = "W";
+
+
     int x;
     int y;
     String direction;
@@ -25,15 +35,15 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public void executeCommand(String command){
+    public void executeCommand(String command) {
         switch (command) {
-            case "M":
+            case COMMAND_MOVE:
                 move();
                 break;
-            case "L":
+            case COMMAND_TURN_LEFT:
                 turnLeft();
                 break;
-            case "R":
+            case COMMAND_TURN_RIGHT:
                 turnRight();
                 break;
         }
@@ -41,51 +51,51 @@ public class MarsRover {
 
     public void move() {
         switch (direction) {
-            case "N":
-                this.y += 1;
+            case NORTH:
+                y += 1;
                 break;
-            case "S":
-                this.y -= 1;
+            case SOUTH:
+                y -= 1;
                 break;
-            case "E":
-                this.x += 1;
+            case EAST:
+                x += 1;
                 break;
-            case "W":
-                this.x -= 1;
+            case WEST:
+                x -= 1;
                 break;
         }
     }
 
     public void turnLeft() {
         switch (direction) {
-            case "N":
-                this.direction = "W";
+            case NORTH:
+                direction = WEST;
                 break;
-            case "W":
-                this.direction = "S";
+            case WEST:
+                direction = SOUTH;
                 break;
-            case "S":
-                this.direction = "E";
+            case SOUTH:
+                direction = EAST;
                 break;
-            case "E":
-                this.direction = "N";
+            case EAST:
+                direction = NORTH;
                 break;
         }
     }
 
     public void turnRight() {
         switch (direction) {
-            case "N":
-                this.direction = "E";
+            case NORTH:
+                direction = EAST;
                 break;
-            case "E":
-                this.direction = "S";
+            case EAST:
+                direction = SOUTH;
                 break;
-            case "S":
-                this.direction = "W";
+            case SOUTH:
+                direction = WEST;
                 break;
-            case "W":
-                this.direction = "N";
+            case WEST:
+                direction = NORTH;
                 break;
         }
     }
