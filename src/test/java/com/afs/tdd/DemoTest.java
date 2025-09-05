@@ -15,7 +15,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_X0_Y1_W_when_execute_command_M() {
+    void should_return_X0_Y1_N_when_execute_command_M() {
         MarsRover marsRover = new MarsRover(0, 0, "N");
 
         marsRover.executeCommand("M");
@@ -24,7 +24,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_X0_Y_1_W_when_execute_command_M() {
+    void should_return_X0_Y_1_S_when_execute_command_M() {
         MarsRover marsRover = new MarsRover(0, 0, "S");
 
         marsRover.executeCommand("M");
