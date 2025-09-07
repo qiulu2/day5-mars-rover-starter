@@ -1,6 +1,7 @@
 package com.afs.tdd;
 
 import com.afs.tdd.command.Command;
+import com.afs.tdd.command.MoveBackwardCommand;
 import com.afs.tdd.command.MoveCommand;
 import com.afs.tdd.command.TurnLeftCommand;
 import com.afs.tdd.command.TurnRightCommand;
@@ -9,6 +10,7 @@ public class MarsRoverController {
     public static final String COMMAND_MOVE = "M";
     public static final String COMMAND_TURN_LEFT = "L";
     public static final String COMMAND_TURN_RIGHT = "R";
+    public static final String COMMAND_MOVE_BACKWARD = "B";
 
     private final MarsRover marsRover;
     private final CommandInvoker invoker;
@@ -43,6 +45,8 @@ public class MarsRoverController {
                 return new TurnLeftCommand(marsRover);
             case COMMAND_TURN_RIGHT:
                 return new TurnRightCommand(marsRover);
+            case COMMAND_MOVE_BACKWARD:
+                return new MoveBackwardCommand(marsRover);
             default:
                 return null;
         }

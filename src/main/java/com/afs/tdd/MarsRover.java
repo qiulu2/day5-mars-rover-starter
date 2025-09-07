@@ -28,6 +28,9 @@ public class MarsRover {
         this.direction = direction;
     }
 
+    /**
+     * 向前移动
+     */
     public void move() {
         switch (direction) {
             case NORTH:
@@ -44,6 +47,24 @@ public class MarsRover {
                 break;
         }
     }
+
+    public void moveBackward() {
+        switch (direction) {
+            case NORTH:
+                y -= 1;
+                break;
+            case SOUTH:
+                y += 1;
+                break;
+            case EAST:
+                x -= 1;
+                break;
+            case WEST:
+                x += 1;
+                break;
+        }
+    }
+
 
     public void turnLeft() {
         switch (direction) {

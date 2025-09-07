@@ -213,4 +213,71 @@ class DemoTest {
         Assertions.assertEquals(5, marsRover.getY());
         Assertions.assertEquals("W", marsRover.getDirection());
     }
+
+    // Move backward tests
+    @Test
+    void should_move_backward_when_facing_north() {
+        MarsRover marsRover = new MarsRover(0, 0, "N");
+        MarsRoverController controller = new MarsRoverController(marsRover);
+
+        controller.executeCommand("B");
+
+        Assertions.assertEquals(0, marsRover.getX());
+        Assertions.assertEquals(-1, marsRover.getY());
+        Assertions.assertEquals("N", marsRover.getDirection());
+    }
+
+    @Test
+    void should_move_backward_when_facing_south() {
+        MarsRover marsRover = new MarsRover(0, 0, "S");
+        MarsRoverController controller = new MarsRoverController(marsRover);
+
+        controller.executeCommand("B");
+
+        Assertions.assertEquals(0, marsRover.getX());
+        Assertions.assertEquals(1, marsRover.getY());
+        Assertions.assertEquals("S", marsRover.getDirection());
+    }
+
+    @Test
+    void should_move_backward_when_facing_east() {
+        MarsRover marsRover = new MarsRover(0, 0, "E");
+        MarsRoverController controller = new MarsRoverController(marsRover);
+
+        controller.executeCommand("B");
+
+        Assertions.assertEquals(-1, marsRover.getX());
+        Assertions.assertEquals(0, marsRover.getY());
+        Assertions.assertEquals("E", marsRover.getDirection());
+    }
+
+    @Test
+    void should_move_backward_when_facing_west() {
+        MarsRover marsRover = new MarsRover(0, 0, "W");
+        MarsRoverController controller = new MarsRoverController(marsRover);
+
+        controller.executeCommand("B");
+
+        Assertions.assertEquals(1, marsRover.getX());
+        Assertions.assertEquals(0, marsRover.getY());
+        Assertions.assertEquals("W", marsRover.getDirection());
+    }
+
+    @Test
+    void should_execute_complex_commands_with_backward_movement() {
+        MarsRover marsRover = new MarsRover(0, 0, "N");
+        MarsRoverController controller = new MarsRoverController(marsRover);
+
+        controller.executeCommands("MMBBLM");
+
+        // 1. M: (0,1,N)
+        // 2. M: (0,2,N)
+        // 3. B: (0,1,N)
+        // 4. B: (0,0,N)
+        // 5. L: (0,0,W)
+        // 6. M: (-1,0,W)
+        Assertions.assertEquals(-1, marsRover.getX());
+        Assertions.assertEquals(0, marsRover.getY());
+        Assertions.assertEquals("W", marsRover.getDirection());
+    }
 }
