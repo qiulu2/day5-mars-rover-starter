@@ -1,20 +1,10 @@
 package com.afs.tdd;
 
-import com.afs.tdd.command.Command;
-import com.afs.tdd.command.MoveCommand;
-import com.afs.tdd.command.TurnLeftCommand;
-import com.afs.tdd.command.TurnRightCommand;
-
 public class MarsRover {
-    public static final String COMMAND_MOVE = "M";
-    public static final String COMMAND_TURN_LEFT = "L";
-    public static final String COMMAND_TURN_RIGHT = "R";
-
     public static final String NORTH = "N";
     public static final String SOUTH = "S";
     public static final String EAST = "E";
     public static final String WEST = "W";
-
 
     int x;
     int y;
@@ -32,29 +22,10 @@ public class MarsRover {
         return direction;
     }
 
-
     public MarsRover(int x, int y, String direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
-    }
-
-    public void executeCommand(String commandType) {
-        Command command;
-        switch (commandType) {
-            case COMMAND_MOVE:
-                command = new MoveCommand(this);
-                break;
-            case COMMAND_TURN_LEFT:
-                command = new TurnLeftCommand(this);
-                break;
-            case COMMAND_TURN_RIGHT:
-                command = new TurnRightCommand(this);
-                break;
-            default:
-                return;
-        }
-        command.execute();
     }
 
     public void move() {
@@ -90,6 +61,7 @@ public class MarsRover {
                 break;
         }
     }
+
 
     public void turnRight() {
         switch (direction) {
